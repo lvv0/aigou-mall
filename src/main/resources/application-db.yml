@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url:
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+
+logging:
+  level:
+    com.cskaoyan.mapper: debug
+
+pagehelper:
+  helper-dialect: mysql
+
+mybatis:
+  type-handlers-package: com.cskaoyan.typehandler

@@ -1,0 +1,14 @@
+spring:
+  web:
+    resources:
+      static-locations:
+  mvc:
+      static-path-pattern: /wx/storage/fetch/**
+  jackson:
+        date-format: yyyy-MM-dd HH:mm:ss
+        time-zone: GMT+8
+        default-property-inclusion: non_null
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 50MB

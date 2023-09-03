@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.mapper.PermissionTMapper">
+
+    <select id="selectOneLevel" resultType="com.cskaoyan.model.vo.PermissionT">
+        select id, label from cskaoyanmall_permission_t_view_1
+    </select>
+
+    <select id="selectTwoLevel" resultType="com.cskaoyan.model.vo.PermissionT">
+        select id, label from cskaoyanmall_permission_t_view_2 where father_id = #{id}
+    </select>
+
+    <select id="selectThreeLevel" resultType="com.cskaoyan.model.vo.PermissionT">
+        select label, permission, api from cskaoyanmall_permission_t_view_3 where father_id = #{id}
+    </select>
+
+    <select id="selectAllThird" resultType="java.lang.String">
+        select permission from cskaoyanmall_permission_t_view_3
+    </select>
+
+    <select id="selectApiByPerm" resultType="java.lang.String">
+        select api from cskaoyanmall_permission_t_view_3 where permission = #{perm}
+    </select>
+
+    <select id="selectSecLevel" resultType="com.cskaoyan.model.vo.PermissionT">
+         select id, label, father_id as fatherId from cskaoyanmall_permission_t_view_2
+    </select>
+
+    <select id="selectThrLevel" resultType="com.cskaoyan.model.vo.PermissionT">
+        select label, permission, api, father_id as fatherId from cskaoyanmall_permission_t_view_3
+    </select>
+</mapper>
